@@ -1,0 +1,40 @@
+package com.Akshay.Service;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.Akshay.Dao.ProjectDao;
+import com.Akshay.Model.Project;
+
+public class ProjectServiceImpl implements ProjectService {
+
+	@Autowired
+	ProjectDao projectdao;
+	
+	@Override
+	public java.util.List<Project> getAllProjects() {
+		
+		return projectdao.getAllProjects();
+	}
+	
+	@Override
+	public void insertProject(Project project) {
+		// TODO Auto-generated method stub
+		projectdao.insertProject(project);
+	}
+
+	@Override
+	public void updateProject(Project project) {
+		// TODO Auto-generated method stub
+		projectdao.updateProject(project);
+	}
+
+	@Override
+	public void deleteProject(int id) {
+		// TODO Auto-generated method stub
+		projectdao.deleteProject(id);
+	}
+
+
+}

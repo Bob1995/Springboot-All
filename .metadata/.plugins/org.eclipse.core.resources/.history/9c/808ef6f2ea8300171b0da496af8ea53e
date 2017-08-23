@@ -1,0 +1,9 @@
+package com.Akshay.Service;
+
+import com.Akshay.Model.Fresher;
+
+public interface AddressService {
+	
+	public Iterable<Address> getAllAddress();	
+
+}

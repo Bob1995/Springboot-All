@@ -1,0 +1,37 @@
+package com.akshay.dao;
+
+import java.util.List;
+
+import com.akshay.model.Project;
+import com.jayway.jsonpath.Criteria;
+
+public class ProjectDaoImpl extends AbstractDAO implements ProjectDao{
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void saveProject(Project project) {
+		 persist(project);
+
+	}
+
+	@Override
+	public void updateEmployee(Project project) {
+		
+		
+	}
+
+	@Override
+	public void deleteProject(String ssn) {
+		
+		
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List<Project> findAllProject() {
+		Criteria criteria = (Criteria) createEntityCriteria();
+		return (List) ((org.hibernate.Criteria) criteria).list();
+	
+	}
+
+}

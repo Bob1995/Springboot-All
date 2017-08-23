@@ -1,0 +1,15 @@
+package com.Akshay.Service;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+import com.Akshay.Model.Address;
+
+public interface AddressRepository  extends JpaRepository<Address, Long>{
+
+	Iterable<Address> getAllAddress();
+	
+	
+
+}

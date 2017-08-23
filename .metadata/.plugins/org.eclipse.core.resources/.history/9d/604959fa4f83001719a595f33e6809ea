@@ -1,0 +1,10 @@
+package com.Akshay.Dao;
+
+import com.Akshay.Model.Project;
+
+public interface ProjectDao {
+	public Iterable<Project> getAllProjects();	
+	public  void insertProject(Project project) ;
+	public  void updateProject(Project project);
+	public  void deleteProject(int id);
+}

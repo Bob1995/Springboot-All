@@ -1,0 +1,15 @@
+package com.akshay.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+
+import com.akshay.model.Project;
+import com.jayway.jsonpath.Criteria;
+
+public class ProjectDaoImpl extends AbstractDAO<Object> implements ProjectDao{
+
+	
+	
+
+}

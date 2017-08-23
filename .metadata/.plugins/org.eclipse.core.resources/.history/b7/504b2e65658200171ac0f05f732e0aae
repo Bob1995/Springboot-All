@@ -1,0 +1,49 @@
+package com.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.Dao.UserDao;
+
+import Model.User;
+
+@Repository(value="UserService")
+public class UserServiceImpl  implements UserService{
+
+	@Autowired
+	UserDao userdao;
+	
+	@Override
+	public List<User> getAllUsers() {
+	
+		System.out.println("hello userservice...");
+		List<User>users=userdao.getAllUsers();
+		return users;
+		
+		
+	}
+
+
+	@Override
+	public boolean updateRequirement(int id, User requiment) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteRequirementById(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void insertUser(User requiment) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

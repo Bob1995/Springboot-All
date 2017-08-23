@@ -1,0 +1,39 @@
+package com.akshay.dao;
+
+import java.lang.reflect.ParameterizedType;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public abstract class AbstractDAO {
+
+	@SuppressWarnings("rawtypes")
+	private final Class persistentClass;
+    
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public AbstractDAO(){    	
+        this.persistentClass =(Class) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[1];
+    }
+     
+    @Autowired
+    private SessionFactory sessionFactory;
+ 
+    protected Session getSession(){
+        return sessionFactory.getCurrentSession();
+    }
+ 
+   
+    public <T> void persist(T entity) {
+        getSession().persist(entity);
+    }
+ 
+    public <T> void delete(T entity) {
+        getSession().delete(entity);
+    }
+     
+    protected Criteria createEntityCriteria(){
+        return getSession().createCriteria(persistentClass);
+    }
+}

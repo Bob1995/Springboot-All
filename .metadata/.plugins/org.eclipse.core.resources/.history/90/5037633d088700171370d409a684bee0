@@ -1,0 +1,5 @@
+package com.akshay.configuration;
+
+public class HibernateConfiguration {
+
+}

@@ -1,0 +1,14 @@
+package com.Akshay.Dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.Akshay.Model.Project1;
+@Component
+public interface ProjectDao {
+	public List<Project1> getAllProjects();	
+	public  void insertProject(Project1 project) ;
+	public  void updateProject(Project1 project);
+	public  void deleteProject(int id);
+}

@@ -1,0 +1,39 @@
+package com.Akshay.Service;
+
+import java.util.List;
+
+import com.Akshay.Model.Fresher;
+import com.Akshay.Model.Project;
+
+public class ProjectServiceImpl implements ProjectService{
+
+
+	@Override
+	public List<Project> getAllProjects() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	@Override
+	public void insertProject(Project project) {
+		
+		
+	}
+
+	@Override
+	public void updateProject(Project project) {
+		
+		
+	}
+
+	@Override
+	public void deleteProject(int id) {
+		
+		
+		
+		
+	}
+
+}

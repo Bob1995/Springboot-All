@@ -1,0 +1,42 @@
+package com.akshay.dao;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.akshay.model.Project;
+
+
+public class ProjectDaoImpl implements ProjectDao{
+
+	@Autowired
+	SessionFactory sessionfactory;
+	
+	@Override
+	public List<Project> getAllProjects() {
+		
+		return null;
+	}
+
+	@Override
+	public void insertProject(Project project) {
+		
+		
+	}
+
+	@Override
+	public void updateProject(Project project) {
+		
+	}
+
+	@Override
+	public void deleteProject(String id) {
+	
+		
+	}
+
+	
+	
+
+}

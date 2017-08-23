@@ -1,0 +1,47 @@
+package com.Dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import Model.User;
+
+public class UserDaoImpl implements UserDao{
+	@Autowired
+    private  JdbcTemplate jdbcTemplate;
+
+	@Override
+	public List<User> getAllUsers() {
+		System.out.println("hello");
+    	String query = "select * from users";
+        List<User> users  = jdbcTemplate.query(query,
+    			new BeanPropertyRowMapper<User>(User.class));
+        							//BeanPropertyRowMapper class maps each row and convert it to corresponding class object and add to list
+    	return users;
+
+	}
+
+	@Override
+	public void insertUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteUser(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+    
+    
+
+}

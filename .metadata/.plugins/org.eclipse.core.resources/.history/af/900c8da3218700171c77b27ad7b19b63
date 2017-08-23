@@ -1,0 +1,21 @@
+package com.akshay.repositories;
+
+
+
+
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.akshay.model.Fresher;
+
+
+
+
+public interface FresherRepository  extends CrudRepository<Fresher, Integer> {
+	
+	
+
+	
+}
+
+

@@ -1,0 +1,67 @@
+package com.Akshay.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.Akshay.Model.Fresher;
+import com.Akshay.Service.fresherService;
+
+
+public class fresherController {
+
+	@Autowired
+	fresherService fresherservice;
+
+	@RequestMapping(value="/hello")
+	public @ResponseBody String method() {
+		return "Hello World";
+	}
+	
+    @RequestMapping(value = "/getAllUsers",method=RequestMethod.GET)
+    public @ResponseBody List<Fresher> getAllUsers() {
+        
+    	System.out.println("hello1");
+    	return  fresherService.getAllUsers();
+    	
+    }
+	
+	  
+    @RequestMapping(value="/insertUser",method=RequestMethod.POST)
+    public @ResponseBody void insertUser(@RequestBody Fresher user){
+    		
+    	fresherService.insertUser(user);
+    	
+    }
+    
+    @RequestMapping(value="/updateUser",method=RequestMethod.PUT)
+    public @ResponseBody void updateUser(@RequestBody User user){
+    	
+    	fresherService.updateUser(user);
+    			
+    }
+    
+    
+    @RequestMapping(value="/deleteUser/{id}",method=RequestMethod.DELETE)
+    public @ResponseBody void deleteUser(@PathVariable("id")int id){
+    		fresherService.deleteUser(id);
+    	
+    }
+  
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+}

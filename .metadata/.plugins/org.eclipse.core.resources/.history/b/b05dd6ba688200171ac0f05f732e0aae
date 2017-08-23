@@ -1,0 +1,19 @@
+package com.demo.Service;
+
+import java.util.List;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.demo.Model.User;
+
+@Component
+public interface UserService {
+
+	public  List<User>getAllUsers();
+	public  void insertUser(User user);
+	public  void updateUser(User user);
+	public  void deleteUser(int id);	
+	
+}

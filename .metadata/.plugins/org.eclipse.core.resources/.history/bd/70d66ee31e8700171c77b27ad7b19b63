@@ -1,0 +1,39 @@
+package com.akshay.dao;
+
+import java.util.List;
+
+
+
+import com.akshay.model.Project;
+
+
+public class ProjectDaoImpl implements ProjectDao{
+
+	@Override
+	public void saveProject(Project project) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateProject(Project project) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteProject(String ssn) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Project> findAllProject() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
+
+}

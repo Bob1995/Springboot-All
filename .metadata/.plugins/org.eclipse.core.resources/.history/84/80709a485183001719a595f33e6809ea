@@ -1,0 +1,58 @@
+package com.Akshay.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.Akshay.Model.Fresher;
+import com.Akshay.Model.Project;
+import com.Akshay.Service.ProjectService;
+
+public class ProjectController {
+
+	
+	@Autowired
+	ProjectService projectservice;
+	
+	@RequestMapping(value = "/getAllProjects",method=RequestMethod.GET)
+	public List<Project> getAllProjects() {
+
+		System.out.println("hello1");
+		return projectservice.getAllProjects();
+
+	}
+
+
+	@RequestMapping(value="/insertProjects",method=RequestMethod.POST)
+	public void insertProject(@RequestBody Project project){
+
+
+		projectservice.insertProject(project);
+	}
+
+	@RequestMapping(value="/updateProject",method=RequestMethod.PUT)
+	public void updateProject(@RequestBody Project project){
+
+		projectservice.updateProject(project);
+
+	}
+
+
+	@RequestMapping(value="/deleteProject/{id}",method=RequestMethod.DELETE)
+	public void deleteProject(@PathVariable("id")int id){
+
+
+		projectservice.deleteProject(id);
+
+	}
+
+
+
+	
+	
+	
+}

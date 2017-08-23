@@ -1,0 +1,10 @@
+package com.Akshay.Model;
+
+public class Project {
+	
+	
+	int project_id;
+	String project_name;
+	
+
+}

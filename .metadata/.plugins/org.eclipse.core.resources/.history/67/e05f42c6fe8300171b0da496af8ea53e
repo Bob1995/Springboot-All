@@ -1,0 +1,18 @@
+package com.Akshay.Dao;
+
+import java.util.List;
+
+
+import org.springframework.stereotype.Component;
+
+import com.akshay.Model.User;
+
+@Component
+public interface UserDao {
+
+	public  List<User>getAllUsers();
+	public  void insertUser(User user);
+	public  void updateUser(User user);
+	public  void deleteUser(int id);	
+
+}

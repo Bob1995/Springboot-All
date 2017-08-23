@@ -1,0 +1,18 @@
+package com.Service;
+
+import java.util.List;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import Model.User;
+
+@ComponentScan("com")
+public interface UserService {
+
+	public @ResponseBody List<User>getAllUsers();
+	public void AddUser(User requiment);	
+	boolean updateRequirement(int id,User requiment);
+	boolean deleteRequirementById(int id);
+	
+}

@@ -1,0 +1,17 @@
+package com.Akshay.Dao;
+
+
+
+
+
+import com.Akshay.Model.Fresher;
+
+
+public interface fresherRepository  extends CrudRepository<Fresher, Integer> {
+	
+	
+
+	
+}
+
+

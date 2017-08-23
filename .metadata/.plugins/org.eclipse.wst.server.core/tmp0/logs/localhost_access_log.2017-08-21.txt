@@ -1,0 +1,2 @@
+127.0.0.1 - - [21/Aug/2017:14:49:00 +0530] "GET / HTTP/1.1" 404 1078
+127.0.0.1 - - [21/Aug/2017:14:49:01 +0530] "GET /Simplejdbc/WEB-INF/classes/com/akshay/DemoApplication.java HTTP/1.1" 404 1055

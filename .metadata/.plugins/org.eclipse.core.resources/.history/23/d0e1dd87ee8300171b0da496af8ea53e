@@ -1,0 +1,14 @@
+package com.Akshay.Service;
+
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.Akshay.Model.Address;
+
+public interface AddressRepository  extends CrudRepository<Address, Long>{
+
+	Iterable<Address> getAllAddress();
+	
+	
+
+}

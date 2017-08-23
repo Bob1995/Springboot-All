@@ -1,0 +1,33 @@
+package com.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.Service.UserService;
+
+import Model.User;
+
+
+@Controller
+public class UserController {
+
+    
+		@Autowired
+		UserService userservice;
+	
+		@RequestMapping(value = "/getAllRequirements", method = RequestMethod.GET, headers = "Accept=application/json")  
+		public @ResponseBody List<User> getAllUsers()
+		{
+			System.out.println("UserController");
+			return userservice.getAllUsers();	
+		}
+	
+	
+    
+   
+}

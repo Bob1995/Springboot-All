@@ -1,0 +1,16 @@
+package com.Akshay.Service;
+
+import java.util.List;
+
+import com.Akshay.Model.Fresher;
+import com.Akshay.Model.User;
+
+public interface fresherService {
+	
+	
+	public  List<Fresher> getAllUsers();
+	public  void insertUser(Fresher fresher);
+	public  void updateUser(Fresher fresher);
+	public  void deleteUser(int id);	
+
+}

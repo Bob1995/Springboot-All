@@ -1,0 +1,14 @@
+package com.Service;
+
+import java.util.List;
+
+import org.springframework.context.annotation.ComponentScan;
+
+import Model.User;
+
+@ComponentScan("com")
+public interface UserService {
+
+	public List<User>getAllUsers();
+	
+}

@@ -1,0 +1,14 @@
+package com.akshay.service;
+
+import java.util.List;
+
+import com.akshay.model.Project;
+
+public interface ProjectService {
+	
+	public  List<Project>getAllProjects();
+	public Project insertProject(Project project);
+	public  void updateProject(Project project);
+	public  void deleteProject(int id);	
+
+}

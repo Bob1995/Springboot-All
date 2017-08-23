@@ -1,0 +1,13 @@
+package com.akshay.service;
+
+public interface ProjectService {
+	
+	 void saveEmployee(Employee employee);
+     
+	    void updateEmployee(Employee employee);
+	     
+	    void deleteEmployeeBySsn(String ssn);
+	 
+	    List findAllEmployees()
+
+}

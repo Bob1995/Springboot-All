@@ -1,0 +1,100 @@
+package com.Akshay.Model;
+
+
+
+
+
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table
+public class Fresher {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
+	int id;
+	
+	String fresher_name;
+	
+	String fresher_email;	
+	
+	String fresher_remark;
+
+	
+
+
+	public Fresher() {
+		super();
+	}
+
+	public Fresher(int id, String fresher_name, String fresher_email, String fresher_remark) {
+		super();
+		this.id = id;
+		this.fresher_name = fresher_name;
+		this.fresher_email = fresher_email;
+		this.fresher_remark = fresher_remark;
+		
+	}
+
+	@OneToMany(targetEntity=Address.class,mappedBy="fresher",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	Set<Address>address;
+
+	public Long getId() {
+		return (long) id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getFresher_name() {
+		return fresher_name;
+	}
+
+
+	public void setFresher_name(String fresher_name) {
+		this.fresher_name = fresher_name;
+	}
+
+
+	public String getFresher_email() {
+		return fresher_email;
+	}
+
+
+	public void setFresher_email(String fresher_email) {
+		this.fresher_email = fresher_email;
+	}
+
+
+	public String getFresher_remark() {
+		return fresher_remark;
+	}
+
+
+	public void setFresher_remark(String fresher_remark) {
+		this.fresher_remark = fresher_remark;
+	}
+
+
+	
+
+
+
+}

@@ -1,0 +1,16 @@
+package Dao;
+
+import java.util.List;
+
+import org.springframework.context.annotation.ComponentScan;
+
+import Model.User;
+
+@ComponentScan("com")
+public interface UserDao {
+	
+	public List<User>getAllUsers();
+	
+		
+	
+}

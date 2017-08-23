@@ -1,0 +1,14 @@
+package com.Akshay.Model;
+
+public class Project {
+	
+	int Project_id;
+	String Project_name;
+	String Project_manager_name;
+	String Client_name;
+	int Project_duration;
+	
+	
+	
+
+}

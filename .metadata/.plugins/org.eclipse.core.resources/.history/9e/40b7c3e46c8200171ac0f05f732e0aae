@@ -1,0 +1,55 @@
+package com.Akshay.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import com.Akshay.Dao.UserDao;
+import com.Akshay.Model.User;
+
+@Service
+public class UserServiceImpl  implements UserService{
+
+	@Autowired
+	UserDao userdao;
+	
+	@Override
+	public List<User> getAllUsers() {
+	
+		System.out.println("hello userservice...");
+		List<User>users=userdao.getAllUsers();
+		return users;
+		
+		
+	}
+
+	@Override
+	public void insertUser(User user) {
+		userdao.insertUser(user);
+	}
+
+	@Override
+	public void updateUser(User user) {
+		userdao.updateUser(user);
+		
+	}
+
+	@Override
+	public void deleteUser(int id) {
+		userdao.deleteUser(id);
+		
+	}
+
+
+
+	
+}
+
+
+
+	
+
+

@@ -1,0 +1,15 @@
+package com.akshay.service;
+
+import java.util.Iterator;
+
+
+
+
+
+public interface AddressService {
+	
+	public Iterator<Address> getAllAddress();	
+	public  void insertAddress(Address address) ;
+	public  void updateAddress(Address address);
+	public  void deleteAddress();
+}

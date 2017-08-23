@@ -1,0 +1,15 @@
+package com.akshay.dao;
+
+import java.util.List;
+
+
+
+import com.akshay.model.Project;
+
+
+public class ProjectDaoImpl implements ProjectDao{
+
+	
+	
+
+}

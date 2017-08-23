@@ -1,0 +1,13 @@
+package Dao;
+
+import java.util.List;
+
+import Model.User;
+
+public interface UserDao {
+	
+	public List<User>getAllUsers();
+	
+		
+	
+}

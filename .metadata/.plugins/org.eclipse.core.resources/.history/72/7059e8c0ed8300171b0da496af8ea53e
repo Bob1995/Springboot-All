@@ -1,0 +1,12 @@
+package com.Akshay.Service;
+
+import java.util.List;
+
+import com.Akshay.Model.Address;
+
+
+public interface AddressService {
+	
+	public List<Address> getAllAddress();	
+
+}

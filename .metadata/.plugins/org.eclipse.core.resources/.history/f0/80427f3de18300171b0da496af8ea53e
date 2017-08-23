@@ -1,0 +1,98 @@
+package com.Akshay.Model;
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+@Entity
+public class Adress extends AbstractPersistable<Integer> {
+	
+	
+	private static final long serialVersionUID = 1L;
+	
+	String city;
+	String state;
+	String country;
+	@ManyToOne
+	@JoinColumn(name="id")
+	Fresher fresher;
+	
+	
+	
+	public Adress() {
+		super();
+	}
+
+
+
+	public Adress(String city, String state, String country, Fresher fresher) {
+		super();
+		this.city = city;
+		this.state = state;
+		this.country = country;
+		this.fresher = fresher;
+	}
+
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+
+	public String getState() {
+		return state;
+	}
+
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+
+	public String getCountry() {
+		return country;
+	}
+
+
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+
+
+	public Fresher getFresher() {
+		return fresher;
+	}
+
+
+
+	public void setFresher(Fresher fresher) {
+		this.fresher = fresher;
+	}
+
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
+	
+	
+	 
+	
+	
+}

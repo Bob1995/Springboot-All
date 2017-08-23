@@ -1,0 +1,10 @@
+package com.Akshay.Service;
+
+import com.Akshay.Model.Address;
+
+
+public interface AddressService {
+	
+	public List<Address> getAllAddress();	
+
+}

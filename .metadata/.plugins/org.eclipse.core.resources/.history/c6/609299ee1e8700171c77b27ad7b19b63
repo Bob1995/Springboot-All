@@ -1,0 +1,16 @@
+package com.akshay.dao;
+
+import java.util.List;
+
+import com.akshay.model.Project;
+
+public interface ProjectDao {
+	void saveProject(Project project);
+
+	void updateProject(Project project);
+
+	void deleteProject(String ssn);
+
+	List<Project> findAllProject();
+
+}

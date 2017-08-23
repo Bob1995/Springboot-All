@@ -1,0 +1,25 @@
+package com.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.Dao.UserDao;
+
+import Model.User;
+
+public class UserServiceImpl  implements UserService{
+
+	@Autowired
+	UserDao userdao;
+	
+	@Override
+	public List<User> getAllUsers() {
+		
+	List<User>users=userdao.getAllUsers();
+		return users;
+		
+		
+	}
+
+}

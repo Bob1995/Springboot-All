@@ -1,0 +1,13 @@
+package com.Akshay.Dao;
+
+import com.Akshay.Model.Fresher;
+
+public interface projectDao {
+
+	public Iterable<Fresher> getAllProjects();	
+	public  void insertProject(Project project) ;
+	public  void updateProject(Project fresher);
+	public  void deleteProject(int id);
+	
+	
+}

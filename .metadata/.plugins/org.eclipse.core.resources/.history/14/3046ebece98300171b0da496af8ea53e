@@ -1,0 +1,8 @@
+package com.Akshay.Service;
+
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean;
+
+public class AddressRepository extends JpaRepository{
+
+}

@@ -1,0 +1,61 @@
+package com.Akshay.Controller;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Akshay.Model.Address;
+import com.Akshay.Model.Fresher;
+import com.Akshay.Service.AddressService;
+
+@RestController
+public class AddressController {
+	
+	@Autowired
+	AddressService addressservice;
+
+	
+	
+	@RequestMapping(value = "/getAllAddress",method=RequestMethod.GET)
+	public Iterator<Address> getAllAddress() {
+
+		System.out.println("hello1");
+		return addressservice.getAllAddress();
+
+	}
+
+	
+	@RequestMapping(value="/insertAddress",method=RequestMethod.POST)
+	public void insertAddress(@RequestBody Address address){
+
+			addressservice.insertAddress(address);
+		
+
+	}
+
+	@RequestMapping(value="/updateAddress",method=RequestMethod.PUT)
+	public void updateAddress(@RequestBody Address address){
+
+		addressservice.updateAddress(address);
+			
+	}
+
+
+	@RequestMapping(value="/deleteAddress/{id}",method=RequestMethod.DELETE)
+	public void deleteAddress(@PathVariable("id")int id){
+
+		addressservice.deleteAddress(id);
+	
+
+	}
+
+
+	
+
+}

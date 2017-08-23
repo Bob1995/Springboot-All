@@ -1,0 +1,19 @@
+package com.akshay.service;
+
+
+
+import java.util.List;
+
+import com.akshay.model.Address;
+
+
+
+
+
+public interface AddressService {
+	
+	public List<Address> getAllAddress();	
+	public  Address  insertAddress(Address address) ;
+	public  void updateAddress(Address address);
+	public  void deleteAddress();
+}

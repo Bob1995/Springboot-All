@@ -1,0 +1,15 @@
+package com.Akshay.Service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.Akshay.Model.Address;
+
+@Component
+public interface AddressService {
+	
+	public List<Address> getAllAddress();	
+
+}

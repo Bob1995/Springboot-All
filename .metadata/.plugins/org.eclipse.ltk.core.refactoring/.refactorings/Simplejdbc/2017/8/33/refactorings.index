@@ -1,0 +1,73 @@
+1502715226232	Rename type 'Person'
+1502715237624	Rename type 'PersonController'
+1502717914800	Delete element
+1502717917305	Delete element
+1502862496199	Rename package 'demo.web'
+1502862507099	Move compilation unit
+1502867284795	Rename type 'UserDao'
+1502867384204	Rename type 'UserService'
+1502867525562	Delete element
+1502867739289	Delete element
+1502868631078	Rename package 'Controller'
+1502868643240	Rename package 'Dao'
+1502868653679	Rename package 'Service'
+1502877018939	Rename package 'demo'
+1502877044115	Rename package 'Model'
+1502877052400	Rename package 'comk.demoModel'
+1502877060462	Rename package 'comk.demo.Model'
+1502877071359	Rename package 'com.Service'
+1502877083050	Rename package 'com.Dao'
+1502877094769	Rename package 'com.Controller'
+1502877165733	Rename package 'com.demo'
+1502877176086	Rename package 'com.demo.Controller'
+1502877187807	Rename package 'com.demo.Dao'
+1502877198302	Rename package 'com.demo.Model'
+1502877208982	Rename package 'com.demo.Service'
+1502884650991	Delete element
+1502884654901	Delete element
+1502891082332	Delete element
+1502891200292	Delete element
+1502891210696	Delete element
+1502948157479	Rename type 'fresherDao'
+1502949869529	Delete element
+1502961924382	Rename type 'fresherController'
+1502961940079	Rename type 'fresherDao'
+1502961948941	Rename type 'fresherDaoImpl'
+1502961959600	Rename type 'fresherRepository'
+1502961972109	Rename type 'projectDao'
+1502961981646	Rename type 'projectDaoImpl'
+1502961993419	Rename type 'fresherService'
+1502962001767	Rename type 'fresherServiceImpl'
+1502962012174	Rename type 'projectService'
+1502962021255	Rename type 'projectServiceImpl'
+1502963264365	Infer generic type arguments
+1502968961480	Move compilation unit
+1502970831233	Delete element
+1502972087117	Delete element
+1502972089498	Delete element
+1502972093518	Delete element
+1502972103578	Delete element
+1502972107620	Delete element
+1502976303952	Rename type 'ProductService'
+1502976316847	Rename type 'ProductServiceImpl'
+1502976633741	Rename type 'ProductController'
+1503034528339	Infer generic type arguments
+1503036973721	Rename type 'Project'
+1503037569235	Rename type 'Project'
+1503038968575	Delete element
+1503038980500	Delete elements
+1503038987315	Delete element
+1503038994535	Delete elements
+1503041187516	Delete element
+1503042638417	Delete element
+1503047941190	Copy compilation units
+1503047969973	Delete element
+1503048041052	Move compilation unit
+1503048104520	Delete element
+1503050059630	Rename package 'Repositories'
+1503051321842	Rename resource 'Akshay'
+1503051338354	Rename resource 'Controller'
+1503051346572	Rename resource 'Dao'
+1503051356082	Rename resource 'Model'
+1503051365857	Rename resource 'Repositories'
+1503051375800	Rename resource 'Service'

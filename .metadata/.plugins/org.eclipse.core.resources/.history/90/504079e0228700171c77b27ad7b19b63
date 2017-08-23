@@ -1,0 +1,51 @@
+package com.akshay.dao;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+import javax.websocket.Session;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.SharedSessionContract;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.akshay.model.Project;
+import com.jayway.jsonpath.Criteria;
+
+
+public class ProjectDaoImpl implements ProjectDao{
+
+	@Autowired
+	SessionFactory sessionfactory;
+	
+	@Override
+	@Transactional
+	public List<Project> getAllProjects() {
+		Session session=(Session) sessionfactory.getCurrentSession();
+		Criteria criteria=(Criteria) ((SharedSessionContract) session).createCriteria(Project.class);
+		return ((org.hibernate.Criteria) criteria).list();
+
+
+	}
+
+	@Override
+	public void insertProject(Project project) {
+		
+		
+	}
+
+	@Override
+	public void updateProject(Project project) {
+		
+	}
+
+	@Override
+	public void deleteProject(String id) {
+	
+		
+	}
+
+	
+	
+
+}

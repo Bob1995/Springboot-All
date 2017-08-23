@@ -1,0 +1,42 @@
+package com.akshay.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+
+import com.akshay.model.Project;
+import com.jayway.jsonpath.Criteria;
+
+public class ProjectDaoImpl extends AbstractDAO<Object> implements ProjectDao{
+
+	
+	@Override
+	public void saveProject(Project project) {
+		 persist(project);
+
+	}
+
+	@Override
+	public void updateProject(Project project) {
+		
+		
+	}
+
+	@Override
+	public void deleteProject(String ssn) {
+		Query query = getSession().createSQLQuery("delete from Project where ssn = :ssn");
+        query.setString("ssn", ssn);
+        query.executeUpdate();
+		
+	}
+
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Project> findAllProject() {
+		Criteria criteria = (Criteria) createEntityCriteria();
+		return (List<Project>) ((org.hibernate.Criteria) criteria).list();
+	
+	}
+
+}

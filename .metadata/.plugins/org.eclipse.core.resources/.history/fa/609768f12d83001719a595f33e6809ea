@@ -1,0 +1,14 @@
+package com.Akshay.Service;
+
+import com.Akshay.Model.Fresher;
+import com.Akshay.Model.Project;
+
+public interface projectService {
+	
+	public Iterable<Fresher> getAllProjects();	
+	public  void insertProject(Project project) ;
+	public  void updateProject(Project fresher);
+	public  void deleteProject(int id);
+	
+
+}

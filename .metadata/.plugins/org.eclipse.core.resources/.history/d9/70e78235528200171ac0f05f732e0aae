@@ -1,0 +1,63 @@
+package Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import Model.User;
+
+@Service
+public class UserServicexx {
+
+	
+	
+	@Autowired
+    private static JdbcTemplate jdbcTemplate;
+
+    
+    @RequestMapping(value = "/getAllUsers",method=RequestMethod.GET)
+    public @ResponseBody
+	static
+	List<User> getAllUsers() {
+        System.out.println("hello");
+    	String query = "select * from users";
+        List<User> users  = jdbcTemplate.query(query,
+    			new BeanPropertyRowMapper<User>(User.class));
+        							//BeanPropertyRowMapper class maps each row and convert it to corresponding class object and add to list
+    	return users;
+    }
+    
+    
+    @RequestMapping(value="/insertUser",method=RequestMethod.POST)
+    public @ResponseBody void insertUser(@RequestBody User user){
+    		String query = "insert into users values ('"+user.firstName+"','"+user.lastName+"',"+user.age+","+user.id+")";
+    		jdbcTemplate.update(query);
+    	
+    }
+    
+    @RequestMapping(value="/updateUser",method=RequestMethod.PUT)
+    public @ResponseBody void updatePerson(@RequestBody User user){
+    		
+    		String query = "update users set firstname='"+user.firstName+"',lastname='"+user.lastName+"',age="+user.age+" where id="+user.id+"";
+    		jdbcTemplate.update(query);
+    	
+    }
+    @RequestMapping(value="/deleteUser/{id}",method=RequestMethod.DELETE)
+    public @ResponseBody void deleteUser(@PathVariable("id")int id){
+    		
+    		String query = "delete from users where id="+id+"";
+    		jdbcTemplate.update(query);
+    	
+    }
+  
+	
+	
+}

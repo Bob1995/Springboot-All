@@ -1,0 +1,60 @@
+package com.akshay.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.akshay.model.User;
+import com.akshay.service.UserService;
+
+
+@Controller
+public class UserController {
+
+    
+		@Autowired
+		UserService userservice;
+	
+		
+		
+	    @RequestMapping(value = "/getAllUsers",method=RequestMethod.GET)
+	    public @ResponseBody List<User> getAllUsers() {
+	        
+	    	System.out.println("hello1");
+	    	return  userservice.getAllUsers();
+	    	
+	    }
+		
+		  
+	    @RequestMapping(value="/insertUser",method=RequestMethod.POST)
+	    public @ResponseBody void insertUser(@RequestBody User user){
+	    		
+	    	userservice.insertUser(user);
+	    	
+	    }
+	    
+	    @RequestMapping(value="/updateUser",method=RequestMethod.PUT)
+	    public @ResponseBody void updateUser(@RequestBody User user){
+	    	
+	    	userservice.updateUser(user);
+	    			
+	    }
+	    
+	    
+	    @RequestMapping(value="/deleteUser/{id}",method=RequestMethod.DELETE)
+	    public @ResponseBody void deleteUser(@PathVariable("id")int id){
+	    		userservice.deleteUser(id);
+	    	
+	    }
+	  
+		
+
+    
+   
+}

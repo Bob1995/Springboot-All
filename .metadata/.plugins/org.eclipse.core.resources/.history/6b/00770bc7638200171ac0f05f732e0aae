@@ -1,0 +1,51 @@
+package com.Dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import Model.User;
+
+public class UserDaoImpl implements UserDao{
+	@Autowired
+    private  JdbcTemplate jdbcTemplate;
+
+    
+    @RequestMapping(value = "/getAllUsers",method=RequestMethod.GET)
+    public @ResponseBody List<User> getAllUsers() {
+        System.out.println("hello");
+    	String query = "select * from users";
+        List<User> users  = jdbcTemplate.query(query,
+    			new BeanPropertyRowMapper<User>(User.class)); 
+    	return users;
+    }
+
+
+	@Override
+	public void AddUser(User user) {
+		
+		
+	}
+
+
+	@Override
+	public boolean updateRequirement(int id, User user) {
+	
+		return false;
+	}
+
+
+	@Override
+	public boolean deleteRequirementById(int id) {
+
+
+		
+		return false;
+	}
+
+}

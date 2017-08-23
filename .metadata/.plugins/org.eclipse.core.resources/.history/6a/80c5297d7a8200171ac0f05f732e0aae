@@ -1,0 +1,42 @@
+package com.Akshay.Service;
+
+import java.util.List;
+
+import com.Akshay.Model.Fresher;
+
+
+public class fresherServiceImpl implements fresherService {
+
+
+	@Override
+	public List<Fresher> getAllFreshers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertFresher(Fresher fresher) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateFresher(Fresher fresher) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteFresher(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+		
+	}
+
+	
+	
+
+

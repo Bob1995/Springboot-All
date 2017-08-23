@@ -1,0 +1,19 @@
+package com.Akshay.Dao;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.Akshay.Model.Fresher;
+
+
+public interface fresherRepository  extends CrudRepository<Fresher, Integer> {
+	
+	List<Fresher> getAllUsers();
+	
+	
+
+	
+}
+
+

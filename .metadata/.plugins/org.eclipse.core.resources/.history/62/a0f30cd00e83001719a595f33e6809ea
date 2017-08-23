@@ -1,0 +1,53 @@
+package com.Akshay.Service;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.Akshay.Dao.fresherDao;
+import com.Akshay.Dao.fresherRepository;
+import com.Akshay.Model.Fresher;
+
+
+public class fresherServiceImpl implements fresherService {
+
+	@Autowired
+	fresherRepository fresherrepository;
+	
+	@Autowired
+	fresherDao fresherdao;
+	
+	@Override
+	public Iterable<Fresher> getAllFreshers() {
+		
+		return fresherdao.getAllFreshers();
+	}
+
+	@Override
+	public void insertFresher(Fresher fresher) {
+		
+		
+		fresherDao.insertFresher(fresher);
+	}
+
+	@Override
+	public void updateFresher(Fresher fresher) {
+		
+		
+	}
+
+	@Override
+	public void deleteFresher(int id) {
+		
+		
+		
+	}
+	
+
+		
+	}
+
+	
+	
+
+

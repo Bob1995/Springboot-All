@@ -1,0 +1,18 @@
+package com.Akshay.Dao;
+
+
+
+
+import java.util.List;
+
+import com.Akshay.Model.Project;
+
+public interface ProjectDao {
+
+	public List<Project> getAllProjects();	
+	public  void insertProject(Project project) ;
+	public  void updateProject(Project fresher);
+	public  void deleteProject(int id);
+	
+	
+}

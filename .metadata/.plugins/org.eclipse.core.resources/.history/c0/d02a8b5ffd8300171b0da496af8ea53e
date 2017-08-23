@@ -1,0 +1,19 @@
+package com.Akshay.Service;
+
+import java.util.Iterator;
+
+
+
+import org.springframework.stereotype.Service;
+
+import com.Akshay.Model.Address;
+
+
+@Service
+public interface AddressService {
+	
+	public Iterator<Address> getAllAddress();	
+	public  void insertAddress(Address address) ;
+	public  void updateAddress(Address address);
+	public  void deleteAddress();
+}

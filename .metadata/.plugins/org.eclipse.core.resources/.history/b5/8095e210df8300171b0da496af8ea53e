@@ -1,0 +1,14 @@
+package com.Akshay.Model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Adress {
+	
+	String city;
+	String state;
+	String country;
+	 
+	
+	
+}

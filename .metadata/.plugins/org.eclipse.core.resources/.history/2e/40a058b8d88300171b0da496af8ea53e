@@ -1,0 +1,42 @@
+package com.Akshay.Service;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.Akshay.Dao.ProjectDao;
+import com.Akshay.Model.Project;
+@Service
+public class ProjectServiceImpl implements ProjectService {
+
+	@Autowired
+	ProjectDao projectdao;
+	
+	@Override
+	public java.util.List<Project> getAllProjects() {
+		
+		return projectdao.getAllProjects();
+	}
+	
+	@Override
+	public void insertProject(Project project) {
+		
+		projectdao.insertProject(project);
+	}
+
+	@Override
+	public void updateProject(Project project) {
+		
+		projectdao.updateProject(project);
+	}
+
+	@Override
+	public void deleteProject(int id) {
+		
+		projectdao.deleteProject(id);
+	}
+
+
+}

@@ -1,0 +1,38 @@
+package com.Akshay.Service;
+
+import java.util.List;
+
+import com.Akshay.Model.User;
+
+public class fresherServiceImpl implements fresherService {
+
+	@Override
+	public List<User> getAllUsers() {
+		return User;
+	
+	}
+
+	@Override
+	public void insertUser(User user) {
+				
+	}
+
+	@Override
+	public void updateUser(User user) {
+		
+		
+	}
+
+	@Override
+	public void deleteUser(int id) {
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+
+}

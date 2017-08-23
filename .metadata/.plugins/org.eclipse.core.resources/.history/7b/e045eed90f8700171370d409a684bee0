@@ -1,0 +1,18 @@
+spring.datasource.url=jdbc:mysql://localhost:3306/Springbootapp
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.jpa.hibernate.ddl-auto = update
+
+spring.jpa.show-sql = true
+spring.jpa.hibernate.ddl-auto = update
+
+spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+hibernate.hbm2ddl.auto: create
+hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+hibernate.show_sql=true
+hibernate.format_sql=true
+entitymanager.packages.to.scan=com.akshay
+dbc.driverClassName:com.mysql.jdbc.Driver

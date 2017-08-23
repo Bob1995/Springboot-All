@@ -1,0 +1,11 @@
+package com.Service;
+
+import java.util.List;
+
+import Model.User;
+
+public interface UserService {
+
+	public List<User>getAllUsers();
+	
+}

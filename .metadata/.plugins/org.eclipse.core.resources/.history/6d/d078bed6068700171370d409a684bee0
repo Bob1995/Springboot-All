@@ -1,0 +1,5 @@
+package com.akshay.dao;
+
+public class AbstractDao {
+
+}

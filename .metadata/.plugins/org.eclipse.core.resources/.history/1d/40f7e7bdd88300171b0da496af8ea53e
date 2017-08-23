@@ -1,0 +1,18 @@
+package com.Akshay.Service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.Akshay.Model.Project;
+
+@Service
+public interface ProjectService {
+
+	public List<Project> getAllProjects();	
+	public  void insertProject(Project project) ;
+	public  void updateProject(Project project);
+	public  void deleteProject(int id);
+	
+}

@@ -1,0 +1,58 @@
+package com.akshay.service;
+
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
+
+import com.akshay.model.Address;
+import com.akshay.repositories.AddressRepository;
+import com.akshay.repositories.FresherRepository;
+
+
+
+@Service
+public class AddressServiceImpl implements AddressService{
+
+	@Autowired
+	AddressRepository addressrepository;
+	
+
+
+
+	
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Address> getAllAddress() {
+
+		return    addressrepository.findAll() ;
+	}
+
+
+	@Override
+	public void insertAddress(Address address) {
+		addressrepository.save(address);
+
+	}
+
+
+	@Override
+	public void updateAddress(Address address) {
+		addressrepository.save(address);		
+	}
+
+
+	@Override
+	public void deleteAddress() {
+
+		addressrepository.deleteAll();
+	}
+
+
+
+
+}

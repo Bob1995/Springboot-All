@@ -1,0 +1,81 @@
+package com.Akshay.Model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Project")
+public class Project {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int Project_id;
+	
+	@Column
+	String Project_name;
+	
+	@Column
+	String Project_manager_name;
+	
+	@Column
+	String Client_name;
+	
+	@Column
+	int Project_duration;
+	
+	
+	
+	public Project() {
+		super();
+	}
+	
+	
+	public Project(int project_id, String project_name, String project_manager_name, String client_name,
+			int project_duration) {
+		super();
+		Project_id = project_id;
+		Project_name = project_name;
+		Project_manager_name = project_manager_name;
+		Client_name = client_name;
+		Project_duration = project_duration;
+	}
+
+
+	public int getProject_id() {
+		return Project_id;
+	}
+	public void setProject_id(int project_id) {
+		Project_id = project_id;
+	}
+	public String getProject_name() {
+		return Project_name;
+	}
+	public void setProject_name(String project_name) {
+		Project_name = project_name;
+	}
+	public String getProject_manager_name() {
+		return Project_manager_name;
+	}
+	public void setProject_manager_name(String project_manager_name) {
+		Project_manager_name = project_manager_name;
+	}
+	public String getClient_name() {
+		return Client_name;
+	}
+	public void setClient_name(String client_name) {
+		Client_name = client_name;
+	}
+	public int getProject_duration() {
+		return Project_duration;
+	}
+	public void setProject_duration(int project_duration) {
+		Project_duration = project_duration;
+	}
+	
+	
+	
+
+}

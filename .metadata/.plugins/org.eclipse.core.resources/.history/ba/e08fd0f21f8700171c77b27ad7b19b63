@@ -1,0 +1,38 @@
+package com.akshay.dao;
+
+import java.util.List;
+
+
+
+import com.akshay.model.Project;
+
+
+public class ProjectDaoImpl implements ProjectDao{
+
+	@Override
+	public List<Project> getAllProjects() {
+		
+		return null;
+	}
+
+	@Override
+	public void insertProject(Project project) {
+		
+		
+	}
+
+	@Override
+	public void updateProject(Project project) {
+		
+	}
+
+	@Override
+	public void deleteProject(String id) {
+	
+		
+	}
+
+	
+	
+
+}

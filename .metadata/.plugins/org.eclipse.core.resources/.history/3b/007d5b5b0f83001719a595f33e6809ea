@@ -1,0 +1,35 @@
+package com.Akshay.Dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.Akshay.Model.Fresher;
+
+public class fresherDaoImpl implements fresherDao{
+
+	
+	
+	
+	@Override
+	public Iterable<Fresher> getAllFreshers() {
+		// TODO Auto-generated method stub
+		return ;
+	}
+
+	@Override
+	public void insertFresher(Fresher fresher) {
+		
+		
+	}
+
+	@Override
+	public void updateFresher(Fresher fresher) {
+	
+		
+	}
+
+	@Override
+	public void deleteFresher(int id) {
+				
+	}
+
+}

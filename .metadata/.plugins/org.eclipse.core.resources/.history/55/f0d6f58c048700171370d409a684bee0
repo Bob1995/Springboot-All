@@ -1,0 +1,86 @@
+
+package com.akshay.controller;
+
+import java.util.Properties;
+
+import javax.activation.DataSource;
+import javax.persistence.EntityManagerFactory;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Environment;
+import org.hibernate.jpa.HibernateEntityManagerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
+
+@EnableAutoConfiguration
+public class HibernateConfiguration {
+	@Value("${db.driver}")
+	private String DRIVER;
+
+	@Value("${db.password}")
+	private String PASSWORD;
+
+	@Value("${db.url}")
+	private String URL;
+
+	@Value("${db.username}")
+	private String USERNAME;
+
+	@Value("${hibernate.dialect}")
+	private String DIALECT;
+
+	@Value("${hibernate.show_sql}")
+	private String SHOW_SQL;
+
+	@Value("${hibernate.hbm2ddl.auto}")
+	private String HBM2DDL_AUTO;
+
+	@Value("${entitymanager.packagesToScan}")
+	private String PACKAGES_TO_SCAN;
+
+	@Configuration
+	public class DatabaseConfig {
+
+	    @Autowired
+	    private Environment env;
+
+
+	    @Bean
+	    public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
+	        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+	        sessionFactory.setDataSource((javax.sql.DataSource) dataSource);
+	        sessionFactory.setPackagesToScan("{path to your database classes}");
+	        sessionFactory.setHibernateProperties(hibernateProperties());
+	        return sessionFactory;
+	    }
+
+	    public Properties hibernateProperties() {
+	        return new Properties() {
+	            {
+	                setProperty("hibernate.hbm2ddl.auto", env.getProperty("datasource.ddl-auto"));
+	                setProperty("hibernate.dialect", env.getProperty("datasource.hibernate.dialect"));
+	                setProperty("hibernate.show_sql", env.getProperty("datasource.show-sql"));
+	                setProperty("hibernate.format_sql", env.getProperty("datasource.format-sql"));
+	            }
+	        };
+	    }
+
+	    @Bean
+	    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+	        return new HibernateTransactionManager(sessionFactory);
+	    }
+
+	    @Bean
+	    public HibernateTemplate hibernateTemplate(SessionFactory sessionFactory) {
+	        return new HibernateTemplate(sessionFactory);
+	    }
+
+}

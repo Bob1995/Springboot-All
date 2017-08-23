@@ -1,0 +1,8 @@
+package com.Akshay.Service;
+
+public class fresherServiceImpl implements fresherService {
+	
+	
+	
+
+}
