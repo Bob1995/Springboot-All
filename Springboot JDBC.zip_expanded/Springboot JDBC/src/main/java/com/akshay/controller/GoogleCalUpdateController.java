@@ -3,6 +3,7 @@ package com.atmecs.sapho.controller;
 import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 
@@ -30,20 +31,32 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.DateTime;
-import com.google.api.services.calendar.Calendar.Events;
 import com.google.api.services.calendar.CalendarScopes;
+import com.google.api.services.calendar.model.Event;
+import com.google.api.services.calendar.model.EventAttendee;
+import com.google.api.services.calendar.model.EventDateTime;
+import com.google.api.services.calendar.model.EventReminder;
 
-@RestController("/login/getEvents")
-public class GoogleCalGetController {
+@RestController
+@RequestMapping
+public class GoogleCalUpdateController {
 
 	private static final String APPLICATION_NAME = "";
 	private static HttpTransport httpTransport;
 	private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 	private static com.google.api.services.calendar.Calendar client;
-	ObjectMapper objectMapper; 
+
+	ObjectMapper objectMapper;
+	Object obj;
 	GoogleClientSecrets clientSecrets;
 	GoogleAuthorizationCodeFlow flow;
 	Credential credential;
+	FileWriter fw;
+
+	final DateTime currentDate = new DateTime(
+			Date.from((LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant())));
+	final DateTime previousDate = new DateTime(
+			Date.from((LocalDateTime.now().minusDays(1).atZone(ZoneId.systemDefault()).toInstant())));
 
 	@Value("${google.client.client-id}")
 	private String clientId;
@@ -53,9 +66,6 @@ public class GoogleCalGetController {
 
 	@Value("${google.client.redirectUri}")
 	private String redirectURI;
-	
-	final DateTime currentDate = new DateTime(Date.from((LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant())));
-	final DateTime previousDate = new DateTime(Date.from((LocalDateTime.now().minusDays(1).atZone(ZoneId.systemDefault()).toInstant())));
 
 	@RequestMapping(value = "/login/google", method = RequestMethod.GET)
 	public RedirectView googleConnectionStatus(HttpServletRequest request) throws Exception {
@@ -79,31 +89,77 @@ public class GoogleCalGetController {
 
 	@RequestMapping(value = "/login/google", method = RequestMethod.GET, params = "code")
 	public ResponseEntity<String> oauth2Callback(@RequestParam(value = "code") String code) {
-		com.google.api.services.calendar.model.Events eventList;
+
 		String eventResponse;
 		try {
 			TokenResponse response = flow.newTokenRequest(code).setRedirectUri(redirectURI).execute();
+
 			credential = flow.createAndStoreCredential(response, "userID");
+
 			client = new com.google.api.services.calendar.Calendar.Builder(httpTransport, JSON_FACTORY, credential)
 					.setApplicationName(APPLICATION_NAME).build();
-			Events events = client.events(); 
-			//eventList = events.list("primary").setTimeMin(previousDate)..setTimeMax(currentDate).execute();
-			eventList = events.list("primary").setUpdatedMin(previousDate).execute();
-			eventResponse = eventList.getItems().toString();
+
+			/*
+			 * Creation of event
+			 */
+			Event event = new Event();
+			event.setSummary("SAPO meeting").setLocation("American Eagle")
+					.setDescription("Discussion realted to connectors");
+			DateTime startDateTime = new DateTime(
+					Date.from((LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant())));
+			EventDateTime start = new EventDateTime().setDateTime(startDateTime).setTimeZone("America/Los_Angeles");
+			event.setStart(start);
+			DateTime endDateTime = new DateTime(
+					Date.from((LocalDateTime.now().plusDays(2).atZone(ZoneId.systemDefault()).toInstant())));
+			EventDateTime end = new EventDateTime().setDateTime(endDateTime).setTimeZone("America/Los_Angeles");
+			event.setEnd(end);
+			String[] recurrence = new String[] { "RRULE:FREQ=DAILY;COUNT=2" };
+			event.setRecurrence(Arrays.asList(recurrence));
+			EventAttendee[] attendees = new EventAttendee[] { new EventAttendee().setEmail("a@gmail.com"),
+					new EventAttendee().setEmail("b@gmail.com"), };
+			event.setAttendees(Arrays.asList(attendees));
+			EventReminder[] reminderOverrides = new EventReminder[] {
+					new EventReminder().setMethod("email").setMinutes(24 * 60),
+					new EventReminder().setMethod("popup").setMinutes(10), };
+			Event.Reminders reminders = new Event.Reminders().setUseDefault(false)
+					.setOverrides(Arrays.asList(reminderOverrides));
+			event.setReminders(reminders);
+			String calendarId = "primary";
+			event = client.events().insert(calendarId, event).execute();
+			System.out.printf("Event created:");
+			eventResponse = event.toString();
 			objectMapper = new ObjectMapper();
 			objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-			Object obj = null;
+			obj = null;
 			obj = objectMapper.readValue(eventResponse, Object.class);
 			System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj));
-			System.out.println("My Events List:" + eventList.getItems().size());
-			FileWriter fw = new FileWriter("C:\\JAVA\\SYNERGY.zip_expanded\\SYNERGY\\src\\main\\resources\\GoogleApiResponses\\Response.txt");
+			fw = new FileWriter(
+					"C:\\JAVA\\SYNERGY.zip_expanded\\SYNERGY\\src\\main\\resources\\GoogleApiResponses\\CreationEvents.json");
 			fw.write(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj));
 			fw.close();
 
+			/*
+			 * Update Event
+			 */
+			event.setDescription("Busy in another meeting");
+			Event updatedEvent = client.events().update("primary", event.getId(), event).execute();
+			System.out.println(updatedEvent.getUpdated());
+			eventResponse = updatedEvent.toString();
+			objectMapper = new ObjectMapper();
+			objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+			obj = objectMapper.readValue(eventResponse, Object.class);
+			System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj));
+			fw = new FileWriter(
+					"C:\\JAVA\\SYNERGY.zip_expanded\\SYNERGY\\src\\main\\resources\\GoogleApiResponses\\UpdatedEvent.json");
+			fw.write(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj));
+			fw.close();
+
+			
 		} catch (Exception e) {
 			eventResponse = "Exception while handling OAuth2 callback (" + e.getMessage() + ")."
 					+ " Redirecting to google connection status page.";
 		}
 		return new ResponseEntity<>(eventResponse, HttpStatus.OK);
+
 	}
 }
